@@ -162,6 +162,10 @@ body {
     position: relative;
     z-index: 2;
     max-width: 600px;
+    opacity: 1;
+    /* Fallback: Visible by default */
+    transform: translateY(0);
+    animation: fadeInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) backwards 0.3s;
 }
 
 .badge {
