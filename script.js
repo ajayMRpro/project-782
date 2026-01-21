@@ -5,7 +5,7 @@ const searchResultsGrid = document.getElementById('searchResultsGrid');
 const contentWrapper = document.querySelector('.content-wrapper');
 
 const API_KEY = '5567eceb';
-const BASE_URL = 'http://www.omdbapi.com/';
+const BASE_URL = 'https://www.omdbapi.com/';
 
 // Predefined Lists to populate the page
 const LISTS = {
