@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popcorned | Premium Movie Experience</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Navigation -->
+        <nav class="glass-nav">
+            <div class="logo">
+                Popcorned
+            </div>
+            <ul class="nav-links">
+                <li onclick="handleNav('home')" class="active">Home</li>
+                <li onclick="handleNav('movies')">Movies</li>
+                <li onclick="handleNav('series')">Series</li>
+                <li onclick="handleNav('mylist')">My List</li>
+            </ul>
+            <!-- User profile removed as per request -->
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="badge">Trending Now</span>
+                <h1 id="hero-title">Dune: Part Two</h1>
+                <div class="hero-meta">
+                    <span>2024</span>
+                    <span><i class="fa-solid fa-circle"></i></span>
+                    <span>Action, Adventure</span>
+                    <span><i class="fa-solid fa-circle"></i></span>
+                    <span>2h 46m</span>
+                </div>
+                <p class="hero-desc">
+                    Paul Atreides unites with Chani and the Fremen while on a warpath of revenge against the
+                    conspirators who destroyed his family. Facing a choice between the love of his life and the fate of
+                    the known universe, he endeavors to prevent a terrible future only he can foresee.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn btn-primary"><i class="fa-solid fa-play"></i> Play Now</button>
+                    <button class="btn btn-glass"><i class="fa-solid fa-circle-info"></i> More Info</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Search & Filter -->
+        <section class="search-section">
+            <div class="search-bar glass-panel">
+                <i class="fa-solid fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for movies, TV shows...">
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="content-wrapper">
+
+            <!-- Genres -->
+            <section class="category-section">
+                <div class="section-header">
+                    <h2>Browse by Genre</h2>
+                </div>
+                <div class="genre-list" id="genreList">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- Upcoming Movies -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2>Upcoming Movies</h2>
+                </div>
+                <div class="movie-grid" id="upcomingGrid"></div>
+            </section>
+
+            <!-- Marvel Universe -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2>Marvel Universe</h2>
+                </div>
+                <div class="movie-grid" id="marvelGrid"></div>
+            </section>
+
+            <!-- Bollywood Hits -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2>Bollywood Hits</h2>
+                </div>
+                <div class="movie-grid" id="bollywoodGrid"></div>
+            </section>
+
+            <!-- Release Year 2024 -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2>Released in 2024</h2>
+                </div>
+                <div class="movie-grid" id="year2024Grid"></div>
+            </section>
+
+            <!-- Classic Action -->
+            <section class="movie-section">
+                <div class="section-header">
+                    <h2>Action Classics</h2>
+                </div>
+                <div class="movie-grid" id="actionGrid"></div>
+            </section>
+
+            <!-- Search Results Container (Hidden by default) -->
+            <section class="movie-section" id="searchResultsSection" style="display: none;">
+                <div class="section-header">
+                    <h2>Search Results</h2>
+                    <button class="btn btn-outline" onclick="handleNav('home')">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Home
+                    </button>
+                </div>
+                <div class="movie-grid" id="searchResultsGrid"></div>
+            </section>
+
+        </main>
+
+        <footer class="glass-footer">
+            <p>&copy; 2024 Popcorned. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

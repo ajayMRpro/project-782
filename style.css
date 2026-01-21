@@ -1,0 +1,470 @@
+:root {
+    /* Windows 11 Palette */
+    --bg-dark: #202020;
+    /* Dark Mica Base */
+    --bg-secondary: #2c2c2c;
+    --bg-card: rgba(32, 32, 32, 0.6);
+    /* Acrylic */
+    --primary: #0078D4;
+    /* Windows Blue */
+    --primary-glow: rgba(0, 120, 212, 0.4);
+    --accent: #60CDFF;
+    /* Light Blue */
+    --accent-gold: #FFD700;
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+
+    /* Mica / Acrylic Effects */
+    --glass-bg: rgba(32, 32, 32, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    /* 1px solid surface stroke */
+
+    --font-main: 'Segoe UI', 'Outfit', sans-serif;
+    --border-radius: 8px;
+    /* Standard Win11 radius */
+    --card-radius: 8px;
+    --transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --nav-height: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    /* Windows 11 Bloom Dark Wallpaper approximation */
+    background-image:
+        radial-gradient(circle at 15% 50%, #001845 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, #4a0072 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, #000000 0%, #1a1a1a 100%);
+    background-attachment: fixed;
+    background-size: cover;
+    color: var(--text-main);
+    font-family: var(--font-main);
+    overflow-x: hidden;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.6;
+}
+
+/* Scrollbar - Thin & Overlay */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border: 4px solid transparent;
+    background-clip: content-box;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.app-container {
+    width: 100%;
+    position: relative;
+}
+
+/* --- Navigation (Mica Material) --- */
+.glass-nav {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 1200px;
+    height: var(--nav-height);
+    background: var(--glass-bg);
+    backdrop-filter: blur(40px) saturate(125%);
+    /* Thick Acrylic */
+    -webkit-backdrop-filter: blur(40px) saturate(125%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 4px;
+    border-radius: 6px;
+}
+
+.nav-links li {
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.nav-links li:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-links li.active {
+    background: rgba(255, 255, 255, 0.1);
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Hero Section --- */
+.hero {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    /* Keep the image but overlay strongly to blend with the 'Bloom' aesthetic */
+    background: url('dune-part-two-3840x2160-11950.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    padding: 0 6%;
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Win11 Bloom inspired gradient overlay on top of the image */
+    background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+    backdrop-filter: contrast(110%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 120, 212, 0.4);
+}
+
+#hero-title {
+    font-size: 3.5rem;
+    font-weight: 600;
+    /* Segoe UI Semibold look */
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.hero-meta span i {
+    font-size: 4px;
+    color: var(--text-muted);
+}
+
+.hero-desc {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 10px 24px;
+    border-radius: 4px;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* 1px border for depth */
+}
+
+.btn-primary:hover {
+    background: #0063b1;
+    /* Slightly darker hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-glass {
+    background: rgba(255, 255, 255, 0.07);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+/* --- Search Section (Floating Acrylic) --- */
+.search-section {
+    padding: 0 6%;
+    margin-top: -30px;
+    position: relative;
+    z-index: 10;
+}
+
+.search-bar {
+    background: rgba(32, 32, 32, 0.85);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    /* Win11 rounded corners */
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-bottom: 2px solid transparent;
+    /* Prepare for focus accent */
+}
+
+.search-bar:focus-within {
+    border-bottom-color: var(--primary);
+    /* Win11 input underline style */
+    background: rgba(40, 40, 40, 0.95);
+}
+
+.search-bar i {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-right: 12px;
+}
+
+.search-bar input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    font-family: var(--font-main);
+    outline: none;
+}
+
+/* --- Main Content --- */
+.content-wrapper {
+    padding: 3rem 6% 6rem;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+
+.section-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* --- Genres (Pills) --- */
+.genre-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-bottom: 3rem;
+}
+
+.genre-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 8px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.genre-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+.genre-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.genre-card:active {
+    transform: scale(0.98);
+}
+
+/* --- Movie Grid (Acrylic Cards) --- */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.movie-card {
+    display: flex;
+    flex-direction: column;
+    /* Win11 Card Style: Acrylic layer + 1px border + soft shadow */
+    background: var(--bg-card);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.15);
+    /* Highlight border on hover */
+}
+
+.poster-container {
+    width: 100%;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+}
+
+.poster-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.movie-card:hover .poster-container img {
+    transform: scale(1.05);
+}
+
+.movie-info {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.movie-title {
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.movie-genre {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.movie-desc {
+    display: none;
+}
+
+.movie-meta-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.rating i {
+    color: var(--accent-gold);
+    margin-right: 4px;
+}
+
+/* --- Footer --- */
+.glass-footer {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .glass-nav {
+        width: 100%;
+        top: 0;
+        border-radius: 0;
+        backdrop-filter: blur(20px);
+    }
+
+    .hero {
+        height: 70vh;
+    }
+
+    #hero-title {
+        font-size: 2.5rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
